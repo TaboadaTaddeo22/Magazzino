@@ -31,18 +31,49 @@ public class FrameMagazzino extends javax.swing.JFrame {
 
         pnlTitolo = new javax.swing.JPanel();
         lblTitolo = new javax.swing.JLabel();
+        pnlCentro = new javax.swing.JPanel();
+        pnlProdotti = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Magazzino");
 
+        pnlTitolo.setBackground(new java.awt.Color(0, 51, 51));
         pnlTitolo.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         pnlTitolo.setLayout(new java.awt.BorderLayout());
 
         lblTitolo.setFont(new java.awt.Font("Georgia Pro", 1, 48)); // NOI18N
+        lblTitolo.setForeground(new java.awt.Color(255, 255, 255));
         lblTitolo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitolo.setText("Magazzino");
         pnlTitolo.add(lblTitolo, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(pnlTitolo, java.awt.BorderLayout.PAGE_START);
+
+        pnlCentro.setLayout(new java.awt.BorderLayout());
+
+        pnlProdotti.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Prodotti", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 24))); // NOI18N
+        pnlProdotti.setLayout(new java.awt.BorderLayout());
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        pnlProdotti.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+
+        pnlCentro.add(pnlProdotti, java.awt.BorderLayout.LINE_START);
+
+        getContentPane().add(pnlCentro, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -73,7 +104,11 @@ public class FrameMagazzino extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblTitolo;
+    private javax.swing.JPanel pnlCentro;
+    private javax.swing.JPanel pnlProdotti;
     private javax.swing.JPanel pnlTitolo;
     // End of variables declaration//GEN-END:variables
 }
