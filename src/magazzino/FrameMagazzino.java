@@ -29,18 +29,20 @@ public class FrameMagazzino extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlTitolo = new javax.swing.JPanel();
+        lblTitolo = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        pnlTitolo.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        pnlTitolo.setLayout(new java.awt.BorderLayout());
+
+        lblTitolo.setFont(new java.awt.Font("Georgia Pro", 1, 48)); // NOI18N
+        lblTitolo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitolo.setText("Magazzino");
+        pnlTitolo.add(lblTitolo, java.awt.BorderLayout.CENTER);
+
+        getContentPane().add(pnlTitolo, java.awt.BorderLayout.PAGE_START);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -71,5 +73,7 @@ public class FrameMagazzino extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel lblTitolo;
+    private javax.swing.JPanel pnlTitolo;
     // End of variables declaration//GEN-END:variables
 }
