@@ -45,7 +45,6 @@ public class FrameMagazzino extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Magazzino");
         setMinimumSize(new java.awt.Dimension(1000, 700));
-        setPreferredSize(new java.awt.Dimension(1000, 700));
 
         pnlTitolo.setBackground(new java.awt.Color(0, 51, 51));
         pnlTitolo.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -62,19 +61,29 @@ public class FrameMagazzino extends javax.swing.JFrame {
         pnlCentro.setLayout(new java.awt.BorderLayout());
 
         pnlProdotti.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Prodotti", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia Pro", 1, 24))); // NOI18N
+        pnlProdotti.setPreferredSize(new java.awt.Dimension(600, 445));
         pnlProdotti.setLayout(new java.awt.BorderLayout());
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID prodotto", "Nome prodotto", "Prezzo acquisto prodotto", "Prezzo vendita prodotto", "Scorta prodotto", "Scorta minima prodotto"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.setPreferredSize(new java.awt.Dimension(600, 80));
         jScrollPane1.setViewportView(jTable1);
 
         pnlProdotti.add(jScrollPane1, java.awt.BorderLayout.CENTER);
