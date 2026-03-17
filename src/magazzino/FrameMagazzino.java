@@ -86,22 +86,47 @@ public class FrameMagazzino extends javax.swing.JFrame {
         pnlBottoni.setPreferredSize(new java.awt.Dimension(400, 625));
         pnlBottoni.setLayout(new java.awt.GridLayout(5, 1, 30, 30));
 
+        btnAggiungiProdotto.setBackground(new java.awt.Color(153, 255, 153));
         btnAggiungiProdotto.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
         btnAggiungiProdotto.setText("Aggiungi Prodotto");
+        btnAggiungiProdotto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAggiungiProdottoActionPerformed(evt);
+            }
+        });
         pnlBottoni.add(btnAggiungiProdotto);
 
+        btnRimuoviProdotto.setBackground(new java.awt.Color(255, 153, 153));
         btnRimuoviProdotto.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
         btnRimuoviProdotto.setText("Rimuovi Prodotto");
+        btnRimuoviProdotto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRimuoviProdottoActionPerformed(evt);
+            }
+        });
         pnlBottoni.add(btnRimuoviProdotto);
 
+        btnModificaProdotto.setBackground(new java.awt.Color(255, 255, 153));
         btnModificaProdotto.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
         btnModificaProdotto.setText("Modifica Prodotto");
+        btnModificaProdotto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificaProdottoActionPerformed(evt);
+            }
+        });
         pnlBottoni.add(btnModificaProdotto);
 
+        btnStatistiche.setBackground(new java.awt.Color(153, 153, 255));
         btnStatistiche.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
         btnStatistiche.setText("Statistiche");
+        btnStatistiche.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStatisticheActionPerformed(evt);
+            }
+        });
         pnlBottoni.add(btnStatistiche);
 
+        btnControlloScorte.setBackground(new java.awt.Color(255, 153, 255));
         btnControlloScorte.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
         btnControlloScorte.setText("Controllo Scorte");
         btnControlloScorte.addActionListener(new java.awt.event.ActionListener() {
@@ -121,6 +146,22 @@ public class FrameMagazzino extends javax.swing.JFrame {
     private void btnControlloScorteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnControlloScorteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnControlloScorteActionPerformed
+
+    private void btnAggiungiProdottoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAggiungiProdottoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAggiungiProdottoActionPerformed
+
+    private void btnRimuoviProdottoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRimuoviProdottoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRimuoviProdottoActionPerformed
+
+    private void btnModificaProdottoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificaProdottoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnModificaProdottoActionPerformed
+
+    private void btnStatisticheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStatisticheActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnStatisticheActionPerformed
 
     /**
      * @param args the command line arguments
