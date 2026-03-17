@@ -35,9 +35,17 @@ public class FrameMagazzino extends javax.swing.JFrame {
         pnlProdotti = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        pnlBottoni = new javax.swing.JPanel();
+        btnAggiungiProdotto = new javax.swing.JButton();
+        btnRimuoviProdotto = new javax.swing.JButton();
+        btnModificaProdotto = new javax.swing.JButton();
+        btnStatistiche = new javax.swing.JButton();
+        btnControlloScorte = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Magazzino");
+        setMinimumSize(new java.awt.Dimension(1000, 700));
+        setPreferredSize(new java.awt.Dimension(1000, 700));
 
         pnlTitolo.setBackground(new java.awt.Color(0, 51, 51));
         pnlTitolo.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -53,7 +61,7 @@ public class FrameMagazzino extends javax.swing.JFrame {
 
         pnlCentro.setLayout(new java.awt.BorderLayout());
 
-        pnlProdotti.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Prodotti", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 24))); // NOI18N
+        pnlProdotti.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Prodotti", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia Pro", 1, 24))); // NOI18N
         pnlProdotti.setLayout(new java.awt.BorderLayout());
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -71,12 +79,48 @@ public class FrameMagazzino extends javax.swing.JFrame {
 
         pnlProdotti.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
-        pnlCentro.add(pnlProdotti, java.awt.BorderLayout.LINE_START);
+        pnlCentro.add(pnlProdotti, java.awt.BorderLayout.LINE_END);
+
+        pnlBottoni.setBorder(javax.swing.BorderFactory.createEmptyBorder(30, 30, 30, 30));
+        pnlBottoni.setMinimumSize(new java.awt.Dimension(200, 625));
+        pnlBottoni.setPreferredSize(new java.awt.Dimension(400, 625));
+        pnlBottoni.setLayout(new java.awt.GridLayout(5, 1, 30, 30));
+
+        btnAggiungiProdotto.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
+        btnAggiungiProdotto.setText("Aggiungi Prodotto");
+        pnlBottoni.add(btnAggiungiProdotto);
+
+        btnRimuoviProdotto.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
+        btnRimuoviProdotto.setText("Rimuovi Prodotto");
+        pnlBottoni.add(btnRimuoviProdotto);
+
+        btnModificaProdotto.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
+        btnModificaProdotto.setText("Modifica Prodotto");
+        pnlBottoni.add(btnModificaProdotto);
+
+        btnStatistiche.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
+        btnStatistiche.setText("Statistiche");
+        pnlBottoni.add(btnStatistiche);
+
+        btnControlloScorte.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
+        btnControlloScorte.setText("Controllo Scorte");
+        btnControlloScorte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnControlloScorteActionPerformed(evt);
+            }
+        });
+        pnlBottoni.add(btnControlloScorte);
+
+        pnlCentro.add(pnlBottoni, java.awt.BorderLayout.LINE_START);
 
         getContentPane().add(pnlCentro, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnControlloScorteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnControlloScorteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnControlloScorteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -104,9 +148,15 @@ public class FrameMagazzino extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAggiungiProdotto;
+    private javax.swing.JButton btnControlloScorte;
+    private javax.swing.JButton btnModificaProdotto;
+    private javax.swing.JButton btnRimuoviProdotto;
+    private javax.swing.JButton btnStatistiche;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblTitolo;
+    private javax.swing.JPanel pnlBottoni;
     private javax.swing.JPanel pnlCentro;
     private javax.swing.JPanel pnlProdotti;
     private javax.swing.JPanel pnlTitolo;
