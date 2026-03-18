@@ -11,6 +11,7 @@ package magazzino;
 public class AggiuntaProdotto extends javax.swing.JDialog {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AggiuntaProdotto.class.getName());
+    private Prodotto p;
 
     /**
      * Creates new form AggiuntaProdotto
@@ -71,11 +72,6 @@ public class AggiuntaProdotto extends javax.swing.JDialog {
         pnlCentro.add(lblId);
 
         txtId.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
-        txtId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdActionPerformed(evt);
-            }
-        });
         pnlCentro.add(txtId);
 
         lblNome.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
@@ -133,12 +129,17 @@ public class AggiuntaProdotto extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdActionPerformed
-
     private void btnConfermaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfermaActionPerformed
-        // TODO add your handling code here:
+        int id = Integer.parseInt(txtId.getText());
+        String nome = txtNome.getText();
+        int prezzoA = Integer.parseInt(txtPrezzoA.getText());
+        int prezzoV = Integer.parseInt(txtPrezzoV.getText());
+        int scorta = Integer.parseInt(txtScorta.getText());
+        int scortaMin = Integer.parseInt(txtScortaMin.getText());
+        
+        p = new Prodotto(id, nome, prezzoA, prezzoV, scorta, scortaMin);
+        
+        dispose();
     }//GEN-LAST:event_btnConfermaActionPerformed
 
     /**
@@ -176,6 +177,10 @@ public class AggiuntaProdotto extends javax.swing.JDialog {
                 dialog.setVisible(true);
             }
         });
+    }
+
+    public Prodotto getP() {
+        return p;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

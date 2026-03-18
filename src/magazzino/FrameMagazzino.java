@@ -1,5 +1,7 @@
 package magazzino;
 
+import javax.swing.table.DefaultTableModel;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -12,12 +14,30 @@ package magazzino;
 public class FrameMagazzino extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrameMagazzino.class.getName());
+    private RaccoltaProdotti rP;
+    private DefaultTableModel model = new DefaultTableModel();
 
     /**
      * Creates new form FrameMagazzino
      */
     public FrameMagazzino() {
         initComponents();
+        rP = new RaccoltaProdotti();
+        impostaTabella();
+    }
+    
+    private void impostaTabella() {
+        tblProdotti.setSize(pnlProdotti.getWidth(), pnlProdotti.getHeight());
+        tblProdotti.setRowHeight(pnlProdotti.getHeight() / tblProdotti.getRowCount());
+        tblProdotti.setModel(model);
+    }
+    
+    public void aggiornaGite() { 
+        model.setRowCount(0);
+
+        for (Prodotto p : rP.getListaProdotti()) {
+            //model.addRow(new Object[]{g.getId(), g.getLuogo()});
+        }
     }
 
     /**
@@ -34,7 +54,7 @@ public class FrameMagazzino extends javax.swing.JFrame {
         pnlCentro = new javax.swing.JPanel();
         pnlProdotti = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblProdotti = new javax.swing.JTable();
         pnlBottoni = new javax.swing.JPanel();
         btnRimuoviProdotto = new javax.swing.JButton();
         btnModificaProdotto = new javax.swing.JButton();
@@ -61,11 +81,30 @@ public class FrameMagazzino extends javax.swing.JFrame {
         pnlCentro.setLayout(new java.awt.BorderLayout());
 
         pnlProdotti.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Prodotti", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia Pro", 1, 24))); // NOI18N
-        pnlProdotti.setPreferredSize(new java.awt.Dimension(600, 445));
+        pnlProdotti.setMinimumSize(new java.awt.Dimension(26, 400));
+        pnlProdotti.setPreferredSize(new java.awt.Dimension(600, 700));
         pnlProdotti.setLayout(new java.awt.BorderLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(452, 625));
+
+        tblProdotti.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -83,8 +122,10 @@ public class FrameMagazzino extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setPreferredSize(new java.awt.Dimension(600, 80));
-        jScrollPane1.setViewportView(jTable1);
+        tblProdotti.setMaximumSize(new java.awt.Dimension(2147483647, 700));
+        tblProdotti.setMinimumSize(new java.awt.Dimension(90, 600));
+        tblProdotti.setPreferredSize(new java.awt.Dimension(600, 690));
+        jScrollPane1.setViewportView(tblProdotti);
 
         pnlProdotti.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
@@ -160,6 +201,8 @@ public class FrameMagazzino extends javax.swing.JFrame {
         AggiuntaProdotto aP = new AggiuntaProdotto(this, true);
         aP.setLocationRelativeTo(null);
         aP.setVisible(true);
+        
+        rP.aggiungiProdotto(aP.getP());
     }//GEN-LAST:event_btnAggiungiProdottoActionPerformed
 
     private void btnRimuoviProdottoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRimuoviProdottoActionPerformed
@@ -206,11 +249,11 @@ public class FrameMagazzino extends javax.swing.JFrame {
     private javax.swing.JButton btnRimuoviProdotto;
     private javax.swing.JButton btnStatistiche;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblTitolo;
     private javax.swing.JPanel pnlBottoni;
     private javax.swing.JPanel pnlCentro;
     private javax.swing.JPanel pnlProdotti;
     private javax.swing.JPanel pnlTitolo;
+    private javax.swing.JTable tblProdotti;
     // End of variables declaration//GEN-END:variables
 }
