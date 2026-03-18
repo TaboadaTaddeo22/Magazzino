@@ -30,7 +30,7 @@
     <Container class="javax.swing.JPanel" name="pnlTitolo">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="33" green="33" red="0" type="rgb"/>
+          <Color blue="33" green="4d" red="0" type="rgb"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
@@ -89,7 +89,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
-              <BorderConstraints direction="After"/>
+              <BorderConstraints direction="Center"/>
             </Constraint>
           </Constraints>
 
@@ -155,27 +155,13 @@
             <Property name="verticalGap" type="int" value="30"/>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="btnAggiungiProdotto">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="99" green="ff" red="99" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Georgia Pro" size="18" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Aggiungi Prodotto"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAggiungiProdottoActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JButton" name="btnRimuoviProdotto">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="99" green="99" red="ff" type="rgb"/>
+                  <Color blue="0" green="17" red="cf" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Georgia Pro" size="18" style="1"/>
+                  <Font name="Georgia Pro" size="30" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Rimuovi Prodotto"/>
               </Properties>
@@ -186,10 +172,10 @@
             <Component class="javax.swing.JButton" name="btnModificaProdotto">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="99" green="ff" red="ff" type="rgb"/>
+                  <Color blue="42" green="fa" red="ff" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Georgia Pro" size="18" style="1"/>
+                  <Font name="Georgia Pro" size="30" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Modifica Prodotto"/>
               </Properties>
@@ -197,13 +183,27 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModificaProdottoActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JButton" name="btnAggiungiProdotto">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="33" green="9d" red="4d" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Georgia Pro" size="30" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Aggiungi Prodotto"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAggiungiProdottoActionPerformed"/>
+              </Events>
+            </Component>
             <Component class="javax.swing.JButton" name="btnStatistiche">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="99" red="99" type="rgb"/>
+                  <Color blue="ff" green="66" red="0" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Georgia Pro" size="18" style="1"/>
+                  <Font name="Georgia Pro" size="30" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Statistiche"/>
               </Properties>
@@ -214,10 +214,10 @@
             <Component class="javax.swing.JButton" name="btnControlloScorte">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="99" red="ff" type="rgb"/>
+                  <Color blue="b3" green="22" red="74" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Georgia Pro" size="18" style="1"/>
+                  <Font name="Georgia Pro" size="30" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Controllo Scorte"/>
               </Properties>

@@ -36,9 +36,9 @@ public class FrameMagazzino extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         pnlBottoni = new javax.swing.JPanel();
-        btnAggiungiProdotto = new javax.swing.JButton();
         btnRimuoviProdotto = new javax.swing.JButton();
         btnModificaProdotto = new javax.swing.JButton();
+        btnAggiungiProdotto = new javax.swing.JButton();
         btnStatistiche = new javax.swing.JButton();
         btnControlloScorte = new javax.swing.JButton();
 
@@ -46,7 +46,7 @@ public class FrameMagazzino extends javax.swing.JFrame {
         setTitle("Magazzino");
         setMinimumSize(new java.awt.Dimension(1000, 700));
 
-        pnlTitolo.setBackground(new java.awt.Color(0, 51, 51));
+        pnlTitolo.setBackground(new java.awt.Color(0, 77, 51));
         pnlTitolo.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         pnlTitolo.setLayout(new java.awt.BorderLayout());
 
@@ -88,25 +88,15 @@ public class FrameMagazzino extends javax.swing.JFrame {
 
         pnlProdotti.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
-        pnlCentro.add(pnlProdotti, java.awt.BorderLayout.LINE_END);
+        pnlCentro.add(pnlProdotti, java.awt.BorderLayout.CENTER);
 
         pnlBottoni.setBorder(javax.swing.BorderFactory.createEmptyBorder(30, 30, 30, 30));
         pnlBottoni.setMinimumSize(new java.awt.Dimension(200, 625));
         pnlBottoni.setPreferredSize(new java.awt.Dimension(400, 625));
         pnlBottoni.setLayout(new java.awt.GridLayout(5, 1, 30, 30));
 
-        btnAggiungiProdotto.setBackground(new java.awt.Color(153, 255, 153));
-        btnAggiungiProdotto.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
-        btnAggiungiProdotto.setText("Aggiungi Prodotto");
-        btnAggiungiProdotto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAggiungiProdottoActionPerformed(evt);
-            }
-        });
-        pnlBottoni.add(btnAggiungiProdotto);
-
-        btnRimuoviProdotto.setBackground(new java.awt.Color(255, 153, 153));
-        btnRimuoviProdotto.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
+        btnRimuoviProdotto.setBackground(new java.awt.Color(207, 23, 0));
+        btnRimuoviProdotto.setFont(new java.awt.Font("Georgia Pro", 1, 30)); // NOI18N
         btnRimuoviProdotto.setText("Rimuovi Prodotto");
         btnRimuoviProdotto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,8 +105,8 @@ public class FrameMagazzino extends javax.swing.JFrame {
         });
         pnlBottoni.add(btnRimuoviProdotto);
 
-        btnModificaProdotto.setBackground(new java.awt.Color(255, 255, 153));
-        btnModificaProdotto.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
+        btnModificaProdotto.setBackground(new java.awt.Color(255, 250, 66));
+        btnModificaProdotto.setFont(new java.awt.Font("Georgia Pro", 1, 30)); // NOI18N
         btnModificaProdotto.setText("Modifica Prodotto");
         btnModificaProdotto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,8 +115,18 @@ public class FrameMagazzino extends javax.swing.JFrame {
         });
         pnlBottoni.add(btnModificaProdotto);
 
-        btnStatistiche.setBackground(new java.awt.Color(153, 153, 255));
-        btnStatistiche.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
+        btnAggiungiProdotto.setBackground(new java.awt.Color(77, 157, 51));
+        btnAggiungiProdotto.setFont(new java.awt.Font("Georgia Pro", 1, 30)); // NOI18N
+        btnAggiungiProdotto.setText("Aggiungi Prodotto");
+        btnAggiungiProdotto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAggiungiProdottoActionPerformed(evt);
+            }
+        });
+        pnlBottoni.add(btnAggiungiProdotto);
+
+        btnStatistiche.setBackground(new java.awt.Color(0, 102, 255));
+        btnStatistiche.setFont(new java.awt.Font("Georgia Pro", 1, 30)); // NOI18N
         btnStatistiche.setText("Statistiche");
         btnStatistiche.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,8 +135,8 @@ public class FrameMagazzino extends javax.swing.JFrame {
         });
         pnlBottoni.add(btnStatistiche);
 
-        btnControlloScorte.setBackground(new java.awt.Color(255, 153, 255));
-        btnControlloScorte.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
+        btnControlloScorte.setBackground(new java.awt.Color(116, 34, 179));
+        btnControlloScorte.setFont(new java.awt.Font("Georgia Pro", 1, 30)); // NOI18N
         btnControlloScorte.setText("Controllo Scorte");
         btnControlloScorte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,7 +157,9 @@ public class FrameMagazzino extends javax.swing.JFrame {
     }//GEN-LAST:event_btnControlloScorteActionPerformed
 
     private void btnAggiungiProdottoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAggiungiProdottoActionPerformed
-        // TODO add your handling code here:
+        AggiuntaProdotto aP = new AggiuntaProdotto(this, true);
+        aP.setLocationRelativeTo(null);
+        aP.setVisible(true);
     }//GEN-LAST:event_btnAggiungiProdottoActionPerformed
 
     private void btnRimuoviProdottoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRimuoviProdottoActionPerformed

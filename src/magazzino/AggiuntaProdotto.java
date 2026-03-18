@@ -32,24 +32,26 @@ public class AggiuntaProdotto extends javax.swing.JDialog {
         pnlTitolo = new javax.swing.JPanel();
         lblTitolo = new javax.swing.JLabel();
         pnlCentro = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        lblId = new javax.swing.JLabel();
+        txtId = new javax.swing.JTextField();
+        lblNome = new javax.swing.JLabel();
+        txtNome = new javax.swing.JTextField();
+        lblPrezzoA = new javax.swing.JLabel();
+        txtPrezzoA = new javax.swing.JTextField();
+        lblPrezzoV = new javax.swing.JLabel();
+        txtPrezzoV = new javax.swing.JTextField();
+        lblScorta = new javax.swing.JLabel();
+        txtScorta = new javax.swing.JTextField();
+        lblScortaMin = new javax.swing.JLabel();
+        txtScortaMin = new javax.swing.JTextField();
         pnlConferma = new javax.swing.JPanel();
         btnConferma = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Aggiunta Prodotto");
+        setPreferredSize(new java.awt.Dimension(700, 500));
 
-        pnlTitolo.setBackground(new java.awt.Color(0, 51, 51));
+        pnlTitolo.setBackground(new java.awt.Color(0, 77, 51));
         pnlTitolo.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         pnlTitolo.setLayout(new java.awt.BorderLayout());
 
@@ -64,67 +66,66 @@ public class AggiuntaProdotto extends javax.swing.JDialog {
         pnlCentro.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         pnlCentro.setLayout(new java.awt.GridLayout(6, 2, 10, 10));
 
-        jLabel1.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
-        jLabel1.setText("jLabel1");
-        pnlCentro.add(jLabel1);
+        lblId.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
+        lblId.setText("ID Prodotto:");
+        pnlCentro.add(lblId);
 
-        jTextField1.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
-        jTextField1.setText("jTextField1");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtId.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
+        txtId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtIdActionPerformed(evt);
             }
         });
-        pnlCentro.add(jTextField1);
+        pnlCentro.add(txtId);
 
-        jLabel2.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
-        jLabel2.setText("jLabel2");
-        pnlCentro.add(jLabel2);
+        lblNome.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
+        lblNome.setText("Nome Prodotto:");
+        pnlCentro.add(lblNome);
 
-        jTextField2.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
-        jTextField2.setText("jTextField2");
-        pnlCentro.add(jTextField2);
+        txtNome.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
+        pnlCentro.add(txtNome);
 
-        jLabel3.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
-        jLabel3.setText("jLabel3");
-        pnlCentro.add(jLabel3);
+        lblPrezzoA.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
+        lblPrezzoA.setText("Prezzo di Acquisto:");
+        pnlCentro.add(lblPrezzoA);
 
-        jTextField3.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
-        jTextField3.setText("jTextField3");
-        pnlCentro.add(jTextField3);
+        txtPrezzoA.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
+        pnlCentro.add(txtPrezzoA);
 
-        jLabel4.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
-        jLabel4.setText("jLabel4");
-        pnlCentro.add(jLabel4);
+        lblPrezzoV.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
+        lblPrezzoV.setText("Prezzo di Vendita:");
+        pnlCentro.add(lblPrezzoV);
 
-        jTextField4.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
-        jTextField4.setText("jTextField4");
-        pnlCentro.add(jTextField4);
+        txtPrezzoV.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
+        pnlCentro.add(txtPrezzoV);
 
-        jLabel5.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
-        jLabel5.setText("jLabel5");
-        pnlCentro.add(jLabel5);
+        lblScorta.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
+        lblScorta.setText("Scorta del Prodotto:");
+        pnlCentro.add(lblScorta);
 
-        jTextField5.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
-        jTextField5.setText("jTextField5");
-        pnlCentro.add(jTextField5);
+        txtScorta.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
+        pnlCentro.add(txtScorta);
 
-        jLabel6.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
-        jLabel6.setText("jLabel6");
-        pnlCentro.add(jLabel6);
+        lblScortaMin.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
+        lblScortaMin.setText("Scorta minima del Prodotto:");
+        pnlCentro.add(lblScortaMin);
 
-        jTextField6.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
-        jTextField6.setText("jTextField6");
-        pnlCentro.add(jTextField6);
+        txtScortaMin.setFont(new java.awt.Font("Georgia Pro", 1, 18)); // NOI18N
+        pnlCentro.add(txtScortaMin);
 
         getContentPane().add(pnlCentro, java.awt.BorderLayout.CENTER);
 
         pnlConferma.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         pnlConferma.setLayout(new java.awt.BorderLayout());
 
-        btnConferma.setBackground(new java.awt.Color(153, 255, 153));
+        btnConferma.setBackground(new java.awt.Color(100, 255, 100));
         btnConferma.setFont(new java.awt.Font("Georgia Pro", 1, 24)); // NOI18N
         btnConferma.setText("Conferma");
+        btnConferma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfermaActionPerformed(evt);
+            }
+        });
         pnlConferma.add(btnConferma, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(pnlConferma, java.awt.BorderLayout.PAGE_END);
@@ -132,9 +133,13 @@ public class AggiuntaProdotto extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtIdActionPerformed
+
+    private void btnConfermaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfermaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnConfermaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,21 +180,21 @@ public class AggiuntaProdotto extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConferma;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JLabel lblId;
+    private javax.swing.JLabel lblNome;
+    private javax.swing.JLabel lblPrezzoA;
+    private javax.swing.JLabel lblPrezzoV;
+    private javax.swing.JLabel lblScorta;
+    private javax.swing.JLabel lblScortaMin;
     private javax.swing.JLabel lblTitolo;
     private javax.swing.JPanel pnlCentro;
     private javax.swing.JPanel pnlConferma;
     private javax.swing.JPanel pnlTitolo;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtPrezzoA;
+    private javax.swing.JTextField txtPrezzoV;
+    private javax.swing.JTextField txtScorta;
+    private javax.swing.JTextField txtScortaMin;
     // End of variables declaration//GEN-END:variables
 }
