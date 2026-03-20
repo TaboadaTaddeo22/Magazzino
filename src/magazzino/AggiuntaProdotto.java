@@ -20,6 +20,13 @@ public class AggiuntaProdotto extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
+    
+    public void modificaProdotto(int id) {
+        setTitle("Modifica Prodotto");
+        lblTitolo.setText("Modifica un Prodotto");
+        txtId.setText(String.valueOf(id));
+        txtId.setEnabled(false);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -50,7 +57,6 @@ public class AggiuntaProdotto extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Aggiunta Prodotto");
-        setPreferredSize(new java.awt.Dimension(700, 500));
 
         pnlTitolo.setBackground(new java.awt.Color(0, 77, 51));
         pnlTitolo.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));

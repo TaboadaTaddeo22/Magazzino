@@ -15,8 +15,7 @@ public class FrameMagazzino extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrameMagazzino.class.getName());
     private RaccoltaProdotti rP;
-    private DefaultTableModel model = new DefaultTableModel();
-
+    private DefaultTableModel model = new DefaultTableModel(new Object[]{"ID Prodotto", "Nome Prodotto", "Prezzo Acquisto", "Prezzo Vendita", "Scorta Prodotto", "Scorta Minima", "Prodotti Venduti"}, 20);
     /**
      * Creates new form FrameMagazzino
      */
@@ -26,17 +25,27 @@ public class FrameMagazzino extends javax.swing.JFrame {
         impostaTabella();
     }
     
-    private void impostaTabella() {
+    private void impostaTabella() {     
         tblProdotti.setSize(pnlProdotti.getWidth(), pnlProdotti.getHeight());
         tblProdotti.setRowHeight(pnlProdotti.getHeight() / tblProdotti.getRowCount());
         tblProdotti.setModel(model);
     }
     
-    public void aggiornaGite() { 
+    public void aggiornaProdotti() { 
         model.setRowCount(0);
 
         for (Prodotto p : rP.getListaProdotti()) {
-            //model.addRow(new Object[]{g.getId(), g.getLuogo()});
+            model.addRow(new Object[]{p.getId(), p.getNome(), p.getPrezzoA(), p.getPrezzoV(), p.getScorta(), p.getScortaMin(), 0});
+        }
+    }
+    
+    public void rimuoviProdotto() {
+        int rS = tblProdotti.getSelectedRow();
+
+        if (rS != -1) {
+            int id = (int) model.getValueAt(rS, 0);
+            rP.eliminaProdotto(id);
+            model.removeRow(rS);
         }
     }
 
@@ -203,14 +212,25 @@ public class FrameMagazzino extends javax.swing.JFrame {
         aP.setVisible(true);
         
         rP.aggiungiProdotto(aP.getP());
+        aggiornaProdotti();
     }//GEN-LAST:event_btnAggiungiProdottoActionPerformed
 
     private void btnRimuoviProdottoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRimuoviProdottoActionPerformed
-        // TODO add your handling code here:
+        rimuoviProdotto();
     }//GEN-LAST:event_btnRimuoviProdottoActionPerformed
 
     private void btnModificaProdottoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificaProdottoActionPerformed
-        // TODO add your handling code here:
+        AggiuntaProdotto aP = new AggiuntaProdotto(this, true);
+        aP.setLocationRelativeTo(null);
+        
+        int rS = tblProdotti.getSelectedRow();
+        int id = (int) model.getValueAt(rS, 0);
+        aP.setVisible(true);
+        aP.modificaProdotto(id);
+        
+        rimuoviProdotto();
+        rP.aggiungiProdotto(aP.getP());
+        aggiornaProdotti();
     }//GEN-LAST:event_btnModificaProdottoActionPerformed
 
     private void btnStatisticheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStatisticheActionPerformed
