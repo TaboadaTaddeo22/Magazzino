@@ -202,7 +202,7 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
             <Property name="columns" type="int" value="1"/>
             <Property name="horizontalGap" type="int" value="30"/>
-            <Property name="rows" type="int" value="5"/>
+            <Property name="rows" type="int" value="7"/>
             <Property name="verticalGap" type="int" value="30"/>
           </Layout>
           <SubComponents>
@@ -218,6 +218,20 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRimuoviProdottoActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnStatistiche">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="28" green="99" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Georgia Pro" size="30" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Statistiche"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStatisticheActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnModificaProdotto">
@@ -248,7 +262,21 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAggiungiProdottoActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnStatistiche">
+            <Component class="javax.swing.JButton" name="btnVendiProdotto">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="d5" green="dd" red="66" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Georgia Pro" size="30" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Vendi Prodotto"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVendiProdottoActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnCaricaFile">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="66" red="0" type="rgb"/>
@@ -256,13 +284,13 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Georgia Pro" size="30" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Statistiche"/>
+                <Property name="text" type="java.lang.String" value="Carica File"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStatisticheActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCaricaFileActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnControlloScorte">
+            <Component class="javax.swing.JButton" name="btnSalvaFile">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="b3" green="22" red="74" type="rgb"/>
@@ -270,10 +298,10 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Georgia Pro" size="30" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Controllo Scorte"/>
+                <Property name="text" type="java.lang.String" value="Salva File"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnControlloScorteActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalvaFileActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

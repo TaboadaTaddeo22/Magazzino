@@ -1,5 +1,6 @@
 package magazzino;
 
+import java.awt.*;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -12,10 +13,12 @@ import javax.swing.table.DefaultTableModel;
  * @author taboada.taddeo
  */
 public class FrameMagazzino extends javax.swing.JFrame {
-    
+    // Attributi
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrameMagazzino.class.getName());
     private RaccoltaProdotti rP;
+    private GestioneFile gF;
     private DefaultTableModel model = new DefaultTableModel(new Object[]{"ID Prodotto", "Nome Prodotto", "Prezzo Acquisto", "Prezzo Vendita", "Scorta Prodotto", "Scorta Minima", "Prodotti Venduti"}, 20);
+    
     /**
      * Creates new form FrameMagazzino
      */
@@ -26,9 +29,9 @@ public class FrameMagazzino extends javax.swing.JFrame {
     }
     
     private void impostaTabella() {     
-        tblProdotti.setSize(pnlProdotti.getWidth(), pnlProdotti.getHeight());
         tblProdotti.setRowHeight(pnlProdotti.getHeight() / tblProdotti.getRowCount());
         tblProdotti.setModel(model);
+        tblProdotti.setFont(new Font("Verdana", Font.BOLD, 25));
     }
     
     public void aggiornaProdotti() { 
@@ -66,10 +69,12 @@ public class FrameMagazzino extends javax.swing.JFrame {
         tblProdotti = new javax.swing.JTable();
         pnlBottoni = new javax.swing.JPanel();
         btnRimuoviProdotto = new javax.swing.JButton();
+        btnStatistiche = new javax.swing.JButton();
         btnModificaProdotto = new javax.swing.JButton();
         btnAggiungiProdotto = new javax.swing.JButton();
-        btnStatistiche = new javax.swing.JButton();
-        btnControlloScorte = new javax.swing.JButton();
+        btnVendiProdotto = new javax.swing.JButton();
+        btnCaricaFile = new javax.swing.JButton();
+        btnSalvaFile = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Magazzino");
@@ -143,7 +148,7 @@ public class FrameMagazzino extends javax.swing.JFrame {
         pnlBottoni.setBorder(javax.swing.BorderFactory.createEmptyBorder(30, 30, 30, 30));
         pnlBottoni.setMinimumSize(new java.awt.Dimension(200, 625));
         pnlBottoni.setPreferredSize(new java.awt.Dimension(400, 625));
-        pnlBottoni.setLayout(new java.awt.GridLayout(5, 1, 30, 30));
+        pnlBottoni.setLayout(new java.awt.GridLayout(7, 1, 30, 30));
 
         btnRimuoviProdotto.setBackground(new java.awt.Color(207, 23, 0));
         btnRimuoviProdotto.setFont(new java.awt.Font("Georgia Pro", 1, 30)); // NOI18N
@@ -154,6 +159,16 @@ public class FrameMagazzino extends javax.swing.JFrame {
             }
         });
         pnlBottoni.add(btnRimuoviProdotto);
+
+        btnStatistiche.setBackground(new java.awt.Color(255, 153, 40));
+        btnStatistiche.setFont(new java.awt.Font("Georgia Pro", 1, 30)); // NOI18N
+        btnStatistiche.setText("Statistiche");
+        btnStatistiche.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStatisticheActionPerformed(evt);
+            }
+        });
+        pnlBottoni.add(btnStatistiche);
 
         btnModificaProdotto.setBackground(new java.awt.Color(255, 250, 66));
         btnModificaProdotto.setFont(new java.awt.Font("Georgia Pro", 1, 30)); // NOI18N
@@ -175,25 +190,35 @@ public class FrameMagazzino extends javax.swing.JFrame {
         });
         pnlBottoni.add(btnAggiungiProdotto);
 
-        btnStatistiche.setBackground(new java.awt.Color(0, 102, 255));
-        btnStatistiche.setFont(new java.awt.Font("Georgia Pro", 1, 30)); // NOI18N
-        btnStatistiche.setText("Statistiche");
-        btnStatistiche.addActionListener(new java.awt.event.ActionListener() {
+        btnVendiProdotto.setBackground(new java.awt.Color(102, 221, 213));
+        btnVendiProdotto.setFont(new java.awt.Font("Georgia Pro", 1, 30)); // NOI18N
+        btnVendiProdotto.setText("Vendi Prodotto");
+        btnVendiProdotto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStatisticheActionPerformed(evt);
+                btnVendiProdottoActionPerformed(evt);
             }
         });
-        pnlBottoni.add(btnStatistiche);
+        pnlBottoni.add(btnVendiProdotto);
 
-        btnControlloScorte.setBackground(new java.awt.Color(116, 34, 179));
-        btnControlloScorte.setFont(new java.awt.Font("Georgia Pro", 1, 30)); // NOI18N
-        btnControlloScorte.setText("Controllo Scorte");
-        btnControlloScorte.addActionListener(new java.awt.event.ActionListener() {
+        btnCaricaFile.setBackground(new java.awt.Color(0, 102, 255));
+        btnCaricaFile.setFont(new java.awt.Font("Georgia Pro", 1, 30)); // NOI18N
+        btnCaricaFile.setText("Carica File");
+        btnCaricaFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnControlloScorteActionPerformed(evt);
+                btnCaricaFileActionPerformed(evt);
             }
         });
-        pnlBottoni.add(btnControlloScorte);
+        pnlBottoni.add(btnCaricaFile);
+
+        btnSalvaFile.setBackground(new java.awt.Color(116, 34, 179));
+        btnSalvaFile.setFont(new java.awt.Font("Georgia Pro", 1, 30)); // NOI18N
+        btnSalvaFile.setText("Salva File");
+        btnSalvaFile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvaFileActionPerformed(evt);
+            }
+        });
+        pnlBottoni.add(btnSalvaFile);
 
         pnlCentro.add(pnlBottoni, java.awt.BorderLayout.LINE_START);
 
@@ -202,9 +227,11 @@ public class FrameMagazzino extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnControlloScorteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnControlloScorteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnControlloScorteActionPerformed
+    private void btnVendiProdottoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendiProdottoActionPerformed
+        VenditaProdotto vP = new VenditaProdotto(this, true);
+        vP.setLocationRelativeTo(null);
+        vP.setVisible(true);
+    }//GEN-LAST:event_btnVendiProdottoActionPerformed
 
     private void btnAggiungiProdottoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAggiungiProdottoActionPerformed
         AggiuntaProdotto aP = new AggiuntaProdotto(this, true);
@@ -234,8 +261,18 @@ public class FrameMagazzino extends javax.swing.JFrame {
     }//GEN-LAST:event_btnModificaProdottoActionPerformed
 
     private void btnStatisticheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStatisticheActionPerformed
-        // TODO add your handling code here:
+        Statistiche s = new Statistiche(this, true);
+        s.setLocationRelativeTo(null);
+        s.setVisible(true);
     }//GEN-LAST:event_btnStatisticheActionPerformed
+
+    private void btnCaricaFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaricaFileActionPerformed
+        //gF.caricaFile();
+    }//GEN-LAST:event_btnCaricaFileActionPerformed
+
+    private void btnSalvaFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvaFileActionPerformed
+        //gF.salvaFile();
+    }//GEN-LAST:event_btnSalvaFileActionPerformed
 
     /**
      * @param args the command line arguments
@@ -264,10 +301,12 @@ public class FrameMagazzino extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAggiungiProdotto;
-    private javax.swing.JButton btnControlloScorte;
+    private javax.swing.JButton btnCaricaFile;
     private javax.swing.JButton btnModificaProdotto;
     private javax.swing.JButton btnRimuoviProdotto;
+    private javax.swing.JButton btnSalvaFile;
     private javax.swing.JButton btnStatistiche;
+    private javax.swing.JButton btnVendiProdotto;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitolo;
     private javax.swing.JPanel pnlBottoni;

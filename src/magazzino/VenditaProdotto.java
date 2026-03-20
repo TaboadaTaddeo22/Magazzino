@@ -8,14 +8,14 @@ package magazzino;
  *
  * @author taboada.taddeo
  */
-public class Statistiche extends javax.swing.JDialog {
+public class VenditaProdotto extends javax.swing.JDialog {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Statistiche.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VenditaProdotto.class.getName());
 
     /**
-     * Creates new form Statistiche
+     * Creates new form VenditaProdotto
      */
-    public Statistiche(java.awt.Frame parent, boolean modal) {
+    public VenditaProdotto(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -34,16 +34,17 @@ public class Statistiche extends javax.swing.JDialog {
         pnlCentro = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Statistiche Magazzino");
+        setTitle("Vendita Prodotto");
 
         pnlTitolo.setBackground(new java.awt.Color(0, 77, 51));
         pnlTitolo.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         pnlTitolo.setLayout(new java.awt.BorderLayout());
 
+        lblTitolo.setBackground(new java.awt.Color(0, 77, 51));
         lblTitolo.setFont(new java.awt.Font("Georgia Pro", 1, 48)); // NOI18N
         lblTitolo.setForeground(new java.awt.Color(255, 255, 255));
         lblTitolo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitolo.setText("Statistiche Magazzino");
+        lblTitolo.setText("Vendi un Prodotto");
         pnlTitolo.add(lblTitolo, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(pnlTitolo, java.awt.BorderLayout.PAGE_START);
@@ -52,11 +53,11 @@ public class Statistiche extends javax.swing.JDialog {
         pnlCentro.setLayout(pnlCentroLayout);
         pnlCentroLayout.setHorizontalGroup(
             pnlCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
+            .addGap(0, 700, Short.MAX_VALUE)
         );
         pnlCentroLayout.setVerticalGroup(
             pnlCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 625, Short.MAX_VALUE)
+            .addGap(0, 425, Short.MAX_VALUE)
         );
 
         getContentPane().add(pnlCentro, java.awt.BorderLayout.CENTER);
@@ -89,7 +90,7 @@ public class Statistiche extends javax.swing.JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                Statistiche dialog = new Statistiche(new javax.swing.JFrame(), true);
+                VenditaProdotto dialog = new VenditaProdotto(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
