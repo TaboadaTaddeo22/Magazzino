@@ -54,5 +54,9 @@ public class Prodotto {
     public int getNumVendite() {
         return numVendite;
     }
+
+    public void setNumVendite(int numVendite) {
+        this.numVendite = numVendite;
+    }
     
 }

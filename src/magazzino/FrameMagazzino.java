@@ -25,6 +25,7 @@ public class FrameMagazzino extends javax.swing.JFrame {
     public FrameMagazzino() {
         initComponents();
         rP = new RaccoltaProdotti();
+        gF = new GestioneFile();
         impostaTabella();
     }
     
@@ -267,11 +268,12 @@ public class FrameMagazzino extends javax.swing.JFrame {
     }//GEN-LAST:event_btnStatisticheActionPerformed
 
     private void btnCaricaFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaricaFileActionPerformed
-        //gF.caricaFile();
+        gF.caricaTutto(rP);
+        aggiornaProdotti();
     }//GEN-LAST:event_btnCaricaFileActionPerformed
 
     private void btnSalvaFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvaFileActionPerformed
-        //gF.salvaFile();
+        gF.salvaTutto(rP);
     }//GEN-LAST:event_btnSalvaFileActionPerformed
 
     /**
