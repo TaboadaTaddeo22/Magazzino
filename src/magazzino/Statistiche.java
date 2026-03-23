@@ -32,6 +32,12 @@ public class Statistiche extends javax.swing.JDialog {
         pnlTitolo = new javax.swing.JPanel();
         lblTitolo = new javax.swing.JLabel();
         pnlCentro = new javax.swing.JPanel();
+        PNLSelezioneStatistica = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        LSTSelezioneProdotto = new javax.swing.JList<>();
+        PNLStatisticheProdotti = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Statistiche Magazzino");
@@ -48,16 +54,32 @@ public class Statistiche extends javax.swing.JDialog {
 
         getContentPane().add(pnlTitolo, java.awt.BorderLayout.PAGE_START);
 
-        javax.swing.GroupLayout pnlCentroLayout = new javax.swing.GroupLayout(pnlCentro);
-        pnlCentro.setLayout(pnlCentroLayout);
-        pnlCentroLayout.setHorizontalGroup(
-            pnlCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
-        );
-        pnlCentroLayout.setVerticalGroup(
-            pnlCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 625, Short.MAX_VALUE)
-        );
+        pnlCentro.setLayout(new java.awt.BorderLayout());
+
+        PNLSelezioneStatistica.setBorder(javax.swing.BorderFactory.createTitledBorder("Selezione statistica"));
+        PNLSelezioneStatistica.setPreferredSize(new java.awt.Dimension(200, 376));
+        PNLSelezioneStatistica.setLayout(new java.awt.GridLayout());
+
+        jScrollPane1.setViewportView(LSTSelezioneProdotto);
+
+        PNLSelezioneStatistica.add(jScrollPane1);
+
+        pnlCentro.add(PNLSelezioneStatistica, java.awt.BorderLayout.LINE_START);
+
+        PNLStatisticheProdotti.setBorder(javax.swing.BorderFactory.createTitledBorder("Statistiche prodotti"));
+        PNLStatisticheProdotti.setEnabled(false);
+        PNLStatisticheProdotti.setLayout(new java.awt.GridLayout());
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("hfdsiuisdfufsuiusi");
+        jTextArea1.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextArea1.setEnabled(false);
+        jScrollPane3.setViewportView(jTextArea1);
+
+        PNLStatisticheProdotti.add(jScrollPane3);
+
+        pnlCentro.add(PNLStatisticheProdotti, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(pnlCentro, java.awt.BorderLayout.CENTER);
 
@@ -102,6 +124,12 @@ public class Statistiche extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JList<String> LSTSelezioneProdotto;
+    private javax.swing.JPanel PNLSelezioneStatistica;
+    private javax.swing.JPanel PNLStatisticheProdotti;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblTitolo;
     private javax.swing.JPanel pnlCentro;
     private javax.swing.JPanel pnlTitolo;

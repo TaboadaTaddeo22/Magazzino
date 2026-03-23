@@ -11,13 +11,15 @@ package magazzino;
 public class VenditaProdotto extends javax.swing.JDialog {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VenditaProdotto.class.getName());
+    private RaccoltaProdotti rP;
 
     /**
      * Creates new form VenditaProdotto
      */
-    public VenditaProdotto(java.awt.Frame parent, boolean modal) {
+    public VenditaProdotto(java.awt.Frame parent, boolean modal, RaccoltaProdotti rP) {
         super(parent, modal);
         initComponents();
+        this.rP = rP;
     }
 
     /**
@@ -32,9 +34,16 @@ public class VenditaProdotto extends javax.swing.JDialog {
         pnlTitolo = new javax.swing.JPanel();
         lblTitolo = new javax.swing.JLabel();
         pnlCentro = new javax.swing.JPanel();
+        lblId = new javax.swing.JLabel();
+        txtId = new javax.swing.JTextField();
+        lblVendite = new javax.swing.JLabel();
+        txtVendite = new javax.swing.JTextField();
+        pnlConferma = new javax.swing.JPanel();
+        btnConferma = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Vendita Prodotto");
+        setMinimumSize(new java.awt.Dimension(700, 500));
 
         pnlTitolo.setBackground(new java.awt.Color(0, 77, 51));
         pnlTitolo.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -49,62 +58,70 @@ public class VenditaProdotto extends javax.swing.JDialog {
 
         getContentPane().add(pnlTitolo, java.awt.BorderLayout.PAGE_START);
 
-        javax.swing.GroupLayout pnlCentroLayout = new javax.swing.GroupLayout(pnlCentro);
-        pnlCentro.setLayout(pnlCentroLayout);
-        pnlCentroLayout.setHorizontalGroup(
-            pnlCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
-        );
-        pnlCentroLayout.setVerticalGroup(
-            pnlCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 425, Short.MAX_VALUE)
-        );
+        pnlCentro.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        pnlCentro.setLayout(new java.awt.GridLayout(2, 2, 20, 20));
+
+        lblId.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
+        lblId.setText("ID del prodotto:");
+        pnlCentro.add(lblId);
+
+        txtId.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
+        pnlCentro.add(txtId);
+
+        lblVendite.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
+        lblVendite.setText("Numero di prodotti da vendere:");
+        pnlCentro.add(lblVendite);
+
+        txtVendite.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
+        pnlCentro.add(txtVendite);
 
         getContentPane().add(pnlCentro, java.awt.BorderLayout.CENTER);
+
+        pnlConferma.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        pnlConferma.setLayout(new java.awt.BorderLayout());
+
+        btnConferma.setBackground(new java.awt.Color(100, 255, 100));
+        btnConferma.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
+        btnConferma.setText("Conferma");
+        btnConferma.setPreferredSize(new java.awt.Dimension(137, 50));
+        btnConferma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfermaActionPerformed(evt);
+            }
+        });
+        pnlConferma.add(btnConferma, java.awt.BorderLayout.CENTER);
+
+        getContentPane().add(pnlConferma, java.awt.BorderLayout.PAGE_END);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void btnConfermaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfermaActionPerformed
+       int id = Integer.parseInt(txtId.getText());
+       int vendite = Integer.parseInt(txtVendite.getText());
+       Prodotto p = rP.cercaProdotto(id);
+       
+       if (p.getScorta() - vendite > p.getScortaMin()) {
+           p.setNumVendite(p.getNumVendite() + vendite);
+           rP.eliminaProdotto(id);
+           rP.aggiungiProdotto(p);
+           dispose();
+       }
+    }//GEN-LAST:event_btnConfermaActionPerformed
 
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                VenditaProdotto dialog = new VenditaProdotto(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
+    public RaccoltaProdotti getRP() {
+        return rP;
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnConferma;
+    private javax.swing.JLabel lblId;
     private javax.swing.JLabel lblTitolo;
+    private javax.swing.JLabel lblVendite;
     private javax.swing.JPanel pnlCentro;
+    private javax.swing.JPanel pnlConferma;
     private javax.swing.JPanel pnlTitolo;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtVendite;
     // End of variables declaration//GEN-END:variables
 }

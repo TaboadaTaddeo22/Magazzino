@@ -229,9 +229,12 @@ public class FrameMagazzino extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVendiProdottoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendiProdottoActionPerformed
-        VenditaProdotto vP = new VenditaProdotto(this, true);
+        VenditaProdotto vP = new VenditaProdotto(this, true, rP);
         vP.setLocationRelativeTo(null);
         vP.setVisible(true);
+        
+        rP = vP.getRP();
+        aggiornaProdotti();
     }//GEN-LAST:event_btnVendiProdottoActionPerformed
 
     private void btnAggiungiProdottoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAggiungiProdottoActionPerformed
