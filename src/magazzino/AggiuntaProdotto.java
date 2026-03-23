@@ -124,6 +124,7 @@ public class AggiuntaProdotto extends javax.swing.JDialog {
         btnConferma.setBackground(new java.awt.Color(100, 255, 100));
         btnConferma.setFont(new java.awt.Font("Georgia Pro", 1, 24)); // NOI18N
         btnConferma.setText("Conferma");
+        btnConferma.setPreferredSize(new java.awt.Dimension(141, 40));
         btnConferma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfermaActionPerformed(evt);
