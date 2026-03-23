@@ -39,7 +39,7 @@ public class FrameMagazzino extends javax.swing.JFrame {
         model.setRowCount(0);
 
         for (Prodotto p : rP.getListaProdotti()) {
-            model.addRow(new Object[]{p.getId(), p.getNome(), p.getPrezzoA(), p.getPrezzoV(), p.getScorta(), p.getScortaMin(), 0});
+            model.addRow(new Object[]{p.getId(), p.getNome(), p.getPrezzoA(), p.getPrezzoV(), p.getScorta(), p.getScortaMin(), p.getNumVendite()});
         }
     }
     
@@ -255,13 +255,15 @@ public class FrameMagazzino extends javax.swing.JFrame {
         aP.setLocationRelativeTo(null);
         
         int rS = tblProdotti.getSelectedRow();
-        int id = (int) model.getValueAt(rS, 0);
-        aP.setVisible(true);
-        aP.modificaProdotto(id);
-        
-        rimuoviProdotto();
-        rP.aggiungiProdotto(aP.getP());
-        aggiornaProdotti();
+        if (rS != -1) {
+            int id = (int) model.getValueAt(rS, 0);
+            aP.modificaProdotto(id);
+            aP.setVisible(true);
+
+            rimuoviProdotto();
+            rP.aggiungiProdotto(aP.getP());
+            aggiornaProdotti();
+        }
     }//GEN-LAST:event_btnModificaProdottoActionPerformed
 
     private void btnStatisticheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStatisticheActionPerformed

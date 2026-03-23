@@ -55,6 +55,30 @@ public class Prodotto {
         return numVendite;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setPrezzoA(int prezzoA) {
+        this.prezzoA = prezzoA;
+    }
+
+    public void setPrezzoV(int prezzoV) {
+        this.prezzoV = prezzoV;
+    }
+
+    public void setScortaMin(int scortaMin) {
+        this.scortaMin = scortaMin;
+    }
+    
+    public void setScorta(int scorta) {
+        this.scorta = scorta;
+    }
+
     public void setNumVendite(int numVendite) {
         this.numVendite = numVendite;
     }

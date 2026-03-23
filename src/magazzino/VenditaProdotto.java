@@ -101,7 +101,8 @@ public class VenditaProdotto extends javax.swing.JDialog {
        int vendite = Integer.parseInt(txtVendite.getText());
        Prodotto p = rP.cercaProdotto(id);
        
-       if (p.getScorta() - vendite > p.getScortaMin()) {
+       if (p.getScorta() - vendite >= p.getScortaMin()) {
+           p.setScorta(p.getScorta() - vendite); 
            p.setNumVendite(p.getNumVendite() + vendite);
            rP.eliminaProdotto(id);
            rP.aggiungiProdotto(p);
