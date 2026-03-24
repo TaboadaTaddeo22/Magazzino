@@ -7,37 +7,7 @@ package magazzino;
 import java.io.*;
 import java.util.*;
 
-/**
- * Classe per la gestione della persistenza dei prodotti tramite file ad accesso diretto.
- *
- * FILE UTILIZZATI:
- *   prodotti.dat  →  file ad accesso diretto (RandomAccessFile) con record a lunghezza fissa.
- *   key.txt       →  file di testo con le coppie  id=posizione  (un indice per record).
- *
- * STRUTTURA DI UN RECORD IN prodotti.dat  (124 byte totali):
- *   [  4 byte ] int   → id
- *   [100 byte ] char* → nome  (50 caratteri Unicode a 2 byte, padding con spazi)
- *   [  4 byte ] int   → prezzoA
- *   [  4 byte ] int   → prezzoV
- *   [  4 byte ] int   → scorta
- *   [  4 byte ] int   → scortaMin
- *   [  4 byte ] int   → numVendite
- *
- * STRUTTURA DI key.txt:
- *   Ogni riga ha il formato:   id=posizioneByte
- *   Esempio:
- *     1=0
- *     2=124
- *     5=248
- *
- * @author taboada.taddeo
- */
 public class GestioneFile {
-
-    // -----------------------------------------------------------------------
-    // Costanti
-    // -----------------------------------------------------------------------
-
     /** Percorso del file ad accesso diretto. */
     private static final String FILE_DAT  = "prodotti.dat";
 
@@ -62,15 +32,11 @@ public class GestioneFile {
             java.util.logging.Logger.getLogger(GestioneFile.class.getName());
 
 
-    // -----------------------------------------------------------------------
-    // Metodi pubblici
-    // -----------------------------------------------------------------------
-
     /**
      * Salva tutti i prodotti presenti in {@code rP} nel file ad accesso diretto
      * {@value #FILE_DAT} e aggiorna il file indici {@value #FILE_KEYS}.
      *
-     * <p>Ogni prodotto occupa esattamente {@value #RECORD_SIZE} byte;
+     * Ogni prodotto occupa esattamente {@value #RECORD_SIZE} byte;
      * la posizione del record nel file è calcolata come {@code indice * RECORD_SIZE}
      * e memorizzata in key.txt nella forma {@code id=posizioneByte}.
      *
@@ -133,9 +99,8 @@ public class GestioneFile {
      * usando le posizioni memorizzate in {@value #FILE_KEYS} e li inserisce
      * nella raccolta {@code rP} (dopo averla svuotata).
      *
-     * <p>Il metodo legge prima key.txt per ottenere la mappa id → posizione,
+     * Il metodo legge prima key.txt per ottenere la mappa id → posizione,
      * poi accede direttamente a ciascun record in prodotti.dat tramite
-     * {@link RandomAccessFile#seek(long)}.
      *
      * @param rP la raccolta in cui inserire i prodotti caricati
      */
@@ -206,17 +171,10 @@ public class GestioneFile {
         }
     }
 
-
-    // -----------------------------------------------------------------------
-    // Metodi privati di utilità
-    // -----------------------------------------------------------------------
-
     /**
      * Scrive una stringa a lunghezza fissa di {@code lunghezza} caratteri.
      * Se {@code s} è più corta viene completata con spazi;
      * se è più lunga viene troncata.
-     * Ogni carattere è scritto come 2 byte (UTF-16, big-endian) con
-     * {@link RandomAccessFile#writeChar(int)}.
      *
      * @param raf      il file ad accesso diretto già aperto
      * @param s        la stringa da scrivere

@@ -270,7 +270,7 @@ public class FrameMagazzino extends javax.swing.JFrame {
     }//GEN-LAST:event_btnModificaProdottoActionPerformed
 
     private void btnStatisticheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStatisticheActionPerformed
-        Statistiche s = new Statistiche(this, true);
+        Statistiche s = new Statistiche(this, true, rP);
         s.setLocationRelativeTo(null);
         s.setVisible(true);
     }//GEN-LAST:event_btnStatisticheActionPerformed
