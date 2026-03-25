@@ -32,14 +32,14 @@ public class FrameMagazzino extends javax.swing.JFrame {
     private void impostaTabella() {     
         tblProdotti.setRowHeight(pnlProdotti.getHeight() / tblProdotti.getRowCount());
         tblProdotti.setModel(model);
-        tblProdotti.setFont(new Font("Verdana", Font.BOLD, 25));
+        tblProdotti.setFont(new Font("Verdana", Font.BOLD, 20));
     }
     
     public void aggiornaProdotti() { 
         model.setRowCount(0);
 
         for (Prodotto p : rP.getListaProdotti()) {
-            model.addRow(new Object[]{p.getId(), p.getNome(), p.getPrezzoA(), p.getPrezzoV(), p.getScorta(), p.getScortaMin(), p.getNumVendite()});
+            model.addRow(new Object[]{p.getId(), p.getNome(), p.getPrezzoA() + " €", p.getPrezzoV() + " €", p.getScorta(), p.getScortaMin(), p.getNumVendite()});
         }
     }
     

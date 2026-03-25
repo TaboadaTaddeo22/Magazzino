@@ -62,8 +62,8 @@ public class GestioneFile {
                 // Scrittura dei campi del prodotto
                 raf.writeInt(p.getId());
                 scriviStringaFissa(raf, p.getNome(), NOME_LEN);
-                raf.writeInt(p.getPrezzoA());
-                raf.writeInt(p.getPrezzoV());
+                raf.writeFloat(p.getPrezzoA());
+                raf.writeFloat(p.getPrezzoV());
                 raf.writeInt(p.getScorta());
                 raf.writeInt(p.getScortaMin());
                 raf.writeInt(p.getNumVendite());
@@ -150,8 +150,8 @@ public class GestioneFile {
 
                 int    id        = raf.readInt();
                 String nome      = leggiStringaFissa(raf, NOME_LEN);
-                int    prezzoA   = raf.readInt();
-                int    prezzoV   = raf.readInt();
+                float  prezzoA   = raf.readFloat();
+                float  prezzoV   = raf.readFloat();
                 int    scorta    = raf.readInt();
                 int    scortaMin = raf.readInt();
                 int    numVend   = raf.readInt();

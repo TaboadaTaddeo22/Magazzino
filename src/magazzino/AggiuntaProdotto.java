@@ -142,8 +142,8 @@ public class AggiuntaProdotto extends javax.swing.JDialog {
     private void btnConfermaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfermaActionPerformed
         int id = Integer.parseInt(txtId.getText());
         String nome = txtNome.getText();
-        int prezzoA = Integer.parseInt(txtPrezzoA.getText());
-        int prezzoV = Integer.parseInt(txtPrezzoV.getText());
+        float prezzoA = Float.parseFloat(txtPrezzoA.getText());
+        float prezzoV = Float.parseFloat(txtPrezzoV.getText());
         int scorta = Integer.parseInt(txtScorta.getText());
         int scortaMin = Integer.parseInt(txtScortaMin.getText());
         

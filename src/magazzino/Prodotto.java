@@ -12,13 +12,13 @@ public class Prodotto {
     // Attributi
     private int id; 
     private String nome;
-    private int prezzoA;
-    private int prezzoV;
+    private float prezzoA;
+    private float prezzoV;
     private int scorta;
     private int scortaMin;
     private int numVendite;
 
-    public Prodotto(int id, String nome, int prezzoA, int prezzoV, int scorta, int scortaMin) {
+    public Prodotto(int id, String nome, float prezzoA, float prezzoV, int scorta, int scortaMin) {
         this.id = id;
         this.nome = nome;
         this.prezzoA = prezzoA;
@@ -35,11 +35,11 @@ public class Prodotto {
         return nome;
     }
 
-    public int getPrezzoA() {
+    public float getPrezzoA() {
         return prezzoA;
     }
 
-    public int getPrezzoV() {
+    public float getPrezzoV() {
         return prezzoV;
     }
 
@@ -63,11 +63,11 @@ public class Prodotto {
         this.nome = nome;
     }
 
-    public void setPrezzoA(int prezzoA) {
+    public void setPrezzoA(float prezzoA) {
         this.prezzoA = prezzoA;
     }
 
-    public void setPrezzoV(int prezzoV) {
+    public void setPrezzoV(float prezzoV) {
         this.prezzoV = prezzoV;
     }
 
